@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Mysuru:wght@300;400;500;600;700&family=Orbitron:wght@400..900&family=Yuji+Mai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* & ##########  Global Scroll bar  #############  */
+::-webkit-scrollbar {
+  width: 8px; 
+}
+::-webkit-scrollbar:horizontal {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1c1917; 
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #292524; 
+}
+/* & ########## Global  Scroll bar  #############  */
+/* & ########## Hotels Scroll bar  #############  */
+#Hotels::-webkit-scrollbar {
+  width: 8px;
+}
+
+#Hotels::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+#Hotels::-webkit-scrollbar-thumb {
+  background-color: #292929;
+  border-radius: 6px;
+}
+
+#Hotels::-webkit-scrollbar-thumb:hover {
+  background-color: #646464; 
+}
+
+/* Move scrollbar to the left */
+#Hotels {
+  direction: rtl;
+  scrollbar-gutter: stable;
+}
+
+#Hotels > * {
+  direction: ltr;
+}
+
+/* & ########## Hotels Scroll bar  #############  */
+
+:root {
+  --background: #494949;
+  --foreground: #bdbdbd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #363636;
+    --foreground: #a5a5a5;
+  }
+}
+
+body {
+  background-color: rgb(19, 18, 18) ;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100dvw;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+.font-orbitron {
+  font-family: theme('fontFamily.orbitron');
+}
+
+/*  * start customization */
+@layer utilities {
+  .GlobalSchema {
+    @apply bg-stone-900/50 rounded-lg p-5 border-[1px] border-stone-900 shadow-2xl shadow-stone-800 w-[90%] max-w-[900px] mx-auto min-h-[500px]
+  }
+  .flex-center {
+    @apply flex justify-center items-center
+  }
+  /* & AI */
+  .global-div{
+    @apply w-full px-2 py-3 
+  }
+  .btn {
+    @apply duration-500 h-fit bg-indigo-700  hover:bg-indigo-500 rounded-lg flex-center px-3 py-2 text-white
+  }
+  .icon {
+    @apply duration-500 cursor-pointer
+  }
+  .select {
+    @apply  cursor-pointer px-3 py-2 duration-500 bg-indigo-700 text-white hover:bg-indigo-500 rounded-lg m-2 min-w-[100px] h-fit
+  }
+  /* & AI */
+  /* & Translation */
+  .textarea {
+    @apply h-[300px] bg-transparent w-[50%] text-stone-900 font-bold p-3 focus:outline-none selection:outline-none 
+  } 
+  .language-select {
+    @apply  cursor-pointer px-3 py-2 duration-500 bg-indigo-700 text-white hover:bg-indigo-900 rounded-lg m-2 min-w-[100px] h-fit
+  }
+  .config {
+    @apply  flex-center !justify-between w-full max-w-[300px] md:w-[40%] 
+  } 
+  .config-icon {
+    @apply flex-center cursor-pointer w-full md:w-[40%] text-[25px] text-blue-600 hover:scale-[1.2] duration-700 
+  } 
+  .config-icons-div {
+    @apply flex gap-x-3 
+  } 
+  /* & Translation */
+
+}
