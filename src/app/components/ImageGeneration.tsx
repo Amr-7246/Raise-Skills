@@ -136,8 +136,8 @@ const ImageGeneration = () => {
                 <div className='flex-center border-t-[1px] border-stone-800 !w-[90%] max-w-[600px] min-h-[120px] flex-wrap global-div md:flex-center  '>
                     {/* Selection */}
                         {/* Select Model */}
-                            <select onChange={(e) => promptsetting(e)} value={promptConfig[0]} className='select' name="Select Model" id="">
-                                <option className='hidden' value="" disabled selected>Choose a model</option>
+                            <select defaultValue="option1" onChange={(e) => promptsetting(e)} value={promptConfig[0]} className='select' name="Select Model" id="">
+                                <option className='hidden' value="option1" disabled >Choose a model</option>
                                 <option className='option' value="stabilityai/stable-diffusion-2">Stable Diffusion 2</option>
                                 <option className='option' value="runwayml/stable-diffusion-v1-5">Stable Diffusion v1.5</option>
                                 <option className='option' value="CompVis/ldm-text2im-large-256">LDM Text-to-Image</option>
@@ -147,8 +147,8 @@ const ImageGeneration = () => {
                             </select>
                         {/* Select Model */}
                         {/* Select Image Count */}
-                            <select onChange={(e) => promptsetting(e)} value={promptConfig[1]} className='select' name="Image Count" id="">
-                                <option className='hidden' value="" disabled selected>Image Count</option>
+                            <select defaultValue="option1" onChange={(e) => promptsetting(e)} value={promptConfig[1]} className='select' name="Image Count" id="">
+                                <option className='hidden' value="option1" disabled >Image Count</option>
                                 <option className='option' value='1'>1 Image</option>
                                 <option className='option' value='2'>2 Images</option>
                                 <option className='option' value='4'>4 Images</option>
@@ -156,8 +156,8 @@ const ImageGeneration = () => {
                             </select>
                         {/* Select Image Count */}
                         {/* Select Aspect Ratio */}
-                            <select onChange={(e) => promptsetting(e)} value={promptConfig[2]} className='select' name="Aspect Ratio" id="">
-                                <option className='hidden' value="" disabled selected>Aspect Ratio</option>
+                            <select defaultValue="option1" onChange={(e) => promptsetting(e)} value={promptConfig[2]} className='select' name="Aspect Ratio" id="">
+                                <option className='hidden' value="option1" disabled>Aspect Ratio</option>
                                 <option className='option' value="1:1">Square (1:1)</option>
                                 <option className='option' value="16:9">Widescreen (16:9)</option>
                                 <option className='option' value="4:3">Standard (4:3)</option>

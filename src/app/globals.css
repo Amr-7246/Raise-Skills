@@ -6,17 +6,17 @@
 @tailwind utilities;
 /* & ##########  Global Scroll bar  #############  */
 ::-webkit-scrollbar {
-  width: 8px; 
+  width: 6px; 
 }
 ::-webkit-scrollbar:horizontal {
-  display: none;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #1c1917; 
+  background-color: #3b3b3b; 
   border-radius: 6px;
 }
 
@@ -26,7 +26,7 @@
 /* & ########## Global  Scroll bar  #############  */
 /* & ########## Hotels Scroll bar  #############  */
 #Hotels::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 #Hotels::-webkit-scrollbar-track {
@@ -87,12 +87,20 @@ body {
 
 /*  * start customization */
 @layer utilities {
-  .GlobalSchema {
-    @apply bg-stone-900/50 rounded-lg p-5 border-[1px] border-stone-900 shadow-2xl shadow-stone-800 w-[90%] max-w-[900px] mx-auto min-h-[500px]
-  }
-  .flex-center {
-    @apply flex justify-center items-center
-  }
+  /* & Global */
+    .page {
+      @apply flex-center min-h-screen bg-ai-gradient py-[100px]
+    }
+    .global-component {
+      @apply w-[95%] md:w-[80%] max-w-[800px] rounded-lg p-5 border-[1px] border-stone-900 shadow-2xl shadow-stone-800 mx-auto min-h-[500px]
+    }
+    .button {
+      @apply duration-500 py-2 px-4 bg-indigo-700  hover:bg-transparent hover:border-indigo-700 hover:text-indigo-700 border-[1px]  rounded-lg flex-center text-white
+    }
+    .flex-center {
+      @apply flex justify-center items-center
+    }
+  /* & Global */
   /* & AI */
   .global-div{
     @apply w-full px-2 py-3 
@@ -100,29 +108,42 @@ body {
   .btn {
     @apply duration-500 h-fit bg-indigo-700  hover:bg-indigo-500 rounded-lg flex-center px-3 py-2 text-white
   }
-  .icon {
-    @apply duration-500 cursor-pointer
-  }
-  .select {
-    @apply  cursor-pointer px-3 py-2 duration-500 bg-indigo-700 text-white hover:bg-indigo-500 rounded-lg m-2 min-w-[100px] h-fit
-  }
+    .icon {
+      @apply duration-500 cursor-pointer
+    }
+    .select {
+      @apply  cursor-pointer px-3 py-2 duration-500 bg-indigo-700 text-white hover:bg-indigo-500 rounded-lg m-2 min-w-[100px] h-fit
+    }
   /* & AI */
   /* & Translation */
-  .textarea {
-    @apply h-[300px] bg-transparent w-[50%] text-stone-900 font-bold p-3 focus:outline-none selection:outline-none 
-  } 
-  .language-select {
-    @apply  cursor-pointer px-3 py-2 duration-500 bg-indigo-700 text-white hover:bg-indigo-900 rounded-lg m-2 min-w-[100px] h-fit
-  }
-  .config {
-    @apply  flex-center !justify-between w-full max-w-[300px] md:w-[40%] 
-  } 
-  .config-icon {
-    @apply flex-center cursor-pointer w-full md:w-[40%] text-[25px] text-blue-600 hover:scale-[1.2] duration-700 
-  } 
-  .config-icons-div {
-    @apply flex gap-x-3 
-  } 
+    .textarea {
+      @apply h-[300px] bg-transparent w-[50%] text-stone-900 font-bold p-3 focus:outline-none selection:outline-none 
+    } 
+    .language-select {
+      @apply  cursor-pointer px-3 py-2 duration-500 bg-indigo-700 text-white hover:bg-indigo-900 rounded-lg m-2 min-w-[100px] h-fit
+    }
+    .config {
+      @apply  flex-center !justify-between w-full max-w-[300px] md:w-[40%] 
+    } 
+    .config-icon {
+      @apply flex-center cursor-pointer w-full md:w-[40%] text-[25px] text-blue-600 hover:scale-[1.2] duration-700 
+    } 
+    .config-icons-div {
+      @apply flex gap-x-3 
+    } 
   /* & Translation */
+  /* & Payment */
+    .payment-feild {
+      @apply text-stone-900 px-3 py-2 focus:outline-none
+    }
+    .payment-lable {
+      @apply text-stone-900 
+    }
+  /* & Payment */
+  /* & Music  */
+    .music-card {
+      @apply min-h-[300px] min-w-[200px] rounded-lg p-5
+    }
+  /* & Music  */
 
 }

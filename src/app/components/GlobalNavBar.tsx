@@ -9,12 +9,18 @@ const GlobalNavBar: React.FC = () => {
     const navItems = [
     { label: 'Ai', href: '/' },
     { label: 'Translation', href: '/Translation' },
+    { label: 'Editor', href: '/Editor' },
+    { label: 'Payment', href: '/Stripe' },
+    { label: 'Tokens', href: '/Tokens' },
+    { label: 'Music', href: '/Music' },
+    { label: 'QRcode', href: '/QRcode' },
+    { label: 'SpeedTyping', href: '/SpeedTyping' },
     { label: 'Game', href: '/Game' },
     ];
 
 return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-stone-800 border-t border-stone-600 shadow-md shadow-stone-500 z-50">
-        <div className="flex justify-around font-yujiMai items-center p-3">
+    <nav className="fixed bottom-0 left-0 overflow-x-scroll  right-0 bg-stone-900 border-t border-stone-600 shadow-md shadow-stone-500 z-50">
+        <div className="flex justify-around font-yujiMai items-center  p-3">
         {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (

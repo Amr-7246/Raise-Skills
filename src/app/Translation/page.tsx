@@ -8,13 +8,13 @@ export default function Home() {
 return (
     <>
         <motion.div
-            className=" min-h-screen bg-ai-gradient pt-[50px] from-sky-600  to-sky-800 "
+            className=" page from-sky-600  to-sky-800 "
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <TranslatCard/>
             <GlobalNavBar/>
+            <TranslatCard/>
         </motion.div>
     </>
 );

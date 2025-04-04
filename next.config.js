@@ -2,7 +2,7 @@
 module.exports = {
   reactStrictMode: true,
   experimental: {
-    serverComponents: true,
+    // serverComponents: true,
   },
   eslint: {
     ignoreDuringBuilds: true,

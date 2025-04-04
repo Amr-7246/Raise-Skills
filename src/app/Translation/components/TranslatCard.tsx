@@ -43,7 +43,7 @@ const TranslatCard = () => {
 // *  ################ Logic
 // *  ################ Elementes
 return (
-    <div className='bg-stone-300 p-2 md:p-5 w-[95%] md:w-[80%] max-w-[700px] min-h-[400px] shadow-2xl mx-auto shadow-stone-800 rounded-md ' >
+    <div className='global-component bg-stone-300  ' >
         <div className='border-[1px] border-stone-700 rounded-md '>
             {/* textarea */}
                 <div className='w-full'>
