@@ -95,7 +95,7 @@ body {
       @apply w-[95%] md:w-[80%] max-w-[800px] rounded-lg p-5 border-[1px] border-stone-900 shadow-2xl shadow-stone-800 mx-auto min-h-[500px]
     }
     .button {
-      @apply duration-500 py-2 px-4 bg-indigo-700  hover:bg-transparent hover:border-indigo-700 hover:text-indigo-700 border-[1px]  rounded-lg flex-center text-white
+      @apply duration-500 py-2 px-4 bg-sky-400 h-fit hover:bg-transparent hover:border-sky-400 hover:text-sky-400 border border-transparent  rounded-lg flex-center text-stone-900 font-bold font-yujiMai
     }
     .flex-center {
       @apply flex justify-center items-center
@@ -134,15 +134,21 @@ body {
   /* & Translation */
   /* & Payment */
     .payment-feild {
-      @apply text-stone-900 px-3 py-2 focus:outline-none
+      @apply text-stone-900 px-3 py-2 focus:outline-none rounded-xl
     }
     .payment-lable {
-      @apply text-stone-900 
+      @apply text-stone-900 block
+    }
+    .lable-div {
+      @apply p-0
     }
   /* & Payment */
   /* & Music  */
     .music-card {
-      @apply min-h-[300px] min-w-[200px] rounded-lg p-5
+      @apply  rounded-lg w-[90%] max-w-[400px] border border-stone-900 bg-stone-900/80 
+    }
+    .config-icons {
+      @apply  duration-500  hover:text-stone-700 cursor-pointer text-[25px] 
     }
   /* & Music  */
 
