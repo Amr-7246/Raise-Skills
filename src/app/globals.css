@@ -151,5 +151,16 @@ body {
       @apply  duration-500  hover:text-stone-700 cursor-pointer text-[25px] 
     }
   /* & Music  */
+  /* & Speed typing */
+  .animate-spin-once {
+    animation: spin 0.5s linear;
+  }
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  /* & Speed typing */
 
 }
