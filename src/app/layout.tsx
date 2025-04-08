@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./Providers";
 import { AnimatePresence } from "framer-motion";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import Provider from './provider';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,11 +15,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={``}>
+      <body>
         <Providers>
-          <AnimatePresence>
-              {children}
-          </AnimatePresence>
+            <Provider>
+              <AnimatePresence mode="wait"> {/* Optional mode prop */}
+                {children}
+              </AnimatePresence>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </Provider>
         </Providers>
       </body>
     </html>

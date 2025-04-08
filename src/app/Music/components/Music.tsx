@@ -37,7 +37,7 @@ const Music = () => {
                 </div>
             </div>
             <div className='music-card !px-0 py-10 max-h-[300px] flex-center flex-col'>
-                <div className='overflow-y-scroll'>
+                <div className='overflow-y-scroll w-full '>
                     {musicData.map((D) => (
                         <div className='border-b cursor-pointer h-fit border-black w-full py-3 font-bold text-center' key={D.id}>{D.title}</div>
                     ))}

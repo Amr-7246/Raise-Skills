@@ -7,15 +7,15 @@ const GlobalNavBar: React.FC = () => {
     const pathname = usePathname();
 
     const navItems = [
-    { label: 'Ai', href: '/' },
-    { label: 'Translation', href: '/Translation' },
+        { label: 'Music', href: '/Music' },
+        { label: 'SpeedTyping', href: '/SpeedTyping' },
+        { label: 'QRcode', href: '/QRcode' },
+        { label: 'Translation', href: '/Translation' },
+        { label: 'Ai', href: '/' },
+    { label: 'Tokens', href: '/Tokens' },
+    { label: 'Game', href: '/Game' },
     { label: 'Editor', href: '/Editor' },
     { label: 'Payment', href: '/Stripe' },
-    { label: 'Tokens', href: '/Tokens' },
-    { label: 'Music', href: '/Music' },
-    { label: 'QRcode', href: '/QRcode' },
-    { label: 'SpeedTyping', href: '/SpeedTyping' },
-    { label: 'Game', href: '/Game' },
     ];
 
 return (

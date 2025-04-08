@@ -67,9 +67,9 @@ const SpeedTyping = () => {
     // % handleChangeText
 // * ############# End logic
 return (
-    <div className="global-component bg-stone-900/80 min-h-screen flex flex-col items-center justify-center text-teal-800 p-4">
+    <div className="global-component bg-stone-900/80 min-h-screen !border !border-teal-800 flex flex-col items-center justify-center text-teal-800 p-4">
         <h1 className="text-3xl md:text-5xl font-bold font-hindMysuru text-sky-400 mb-6 animate-pulse">
-            Speed Typing app
+            Speed Typing App
         </h1>
 
         <div className="flex items-center gap-3 mb-4">
@@ -81,7 +81,7 @@ return (
             </button>
         </div>
 
-        <textarea className="w-full max-w-xl h-40 p-3 rounded-lg bg-stone-900 text-white focus:outline-none font-mono text-lg resize-none" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Start typing here..." />
+        <textarea className="w-full max-w-xl h-40 p-3 rounded-lg bg-stone-900 text-teal-400 focus:outline-none font-mono text-lg resize-none" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Start typing here..." />
 
         <div className="mt-4 text-center space-y-4">
             {input === textToType && (

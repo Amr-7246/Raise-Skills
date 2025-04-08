@@ -117,7 +117,7 @@ body {
   /* & AI */
   /* & Translation */
     .textarea {
-      @apply h-[300px] bg-transparent w-[50%] text-stone-900 font-bold p-3 focus:outline-none selection:outline-none 
+      @apply h-[300px] bg-transparent w-[50%] text-sky-400 font-bold p-3 focus:outline-none selection:outline-none 
     } 
     .language-select {
       @apply  cursor-pointer px-3 py-2 duration-500 bg-indigo-700 text-white hover:bg-indigo-900 rounded-lg m-2 min-w-[100px] h-fit
