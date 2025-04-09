@@ -18,14 +18,21 @@ const Music = () => {
 // * ########## State
 // * ########## Logic
   // ~ ProgressBar
-    if(IsPlay){
-      setTimeout(() => {
-        if (audioRef.current?.currentTime !== undefined) {
-          setProgressBar(audioRef.current.currentTime)
-        }
-
-      }, 5000);
-    }
+    useEffect(() => {
+      let interval: NodeJS.Timeout | null = null
+    
+      if (IsPlay) {
+        interval = setInterval(() => {
+          if (audioRef.current?.currentTime !== undefined) {
+            setProgressBar(audioRef.current.currentTime)
+          }
+        }, 1000)
+      }
+    
+      return () => {
+        if (interval) clearInterval(interval)
+      }
+    }, [IsPlay])
     useEffect(() => {
       console.log(ProgressBar)
       setProgressPercentage( audioRef.current?.duration ? (ProgressBar * 100) / audioRef.current.duration : 0)
