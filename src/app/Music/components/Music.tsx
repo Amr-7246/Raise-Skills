@@ -5,25 +5,30 @@ import { FaPlay, FaPause, FaFastForward, FaFastBackward, FaRandom, FaRedoAlt } f
 
 const Music = () => {
 // * ########## State
-const [DataIndex, setDataIndex] = useState(0)
-const [Data, setData] = useState(musicData[0])
-const [IsPlay, setIsPlay] = useState(false)
-const [Progress, setProgress] = useState<number | undefined >(0)
-const [ProgressBar, setProgressBar] = useState<number|undefined>(0)
+  const [DataIndex, setDataIndex] = useState(0)
+  const [Data, setData] = useState(musicData[0])
+  const [IsPlay, setIsPlay] = useState(false)
+  const [Progress, setProgress] = useState<number | undefined >(0)
+  const [ProgressBar, setProgressBar] = useState<number>(0)
+  const [ProgressPercentage, setProgressPercentage] = useState<number|undefined>(0)
 
-const audioRef = useRef<HTMLAudioElement | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 // * ########## State
 // * ########## Logic
 // ~ ProgressBar
   if(IsPlay){
     setTimeout(() => {
-      setProgressBar(audioRef.current?.currentTime)
+      if (audioRef.current?.currentTime !== undefined) {
+        setProgressBar(audioRef.current.currentTime)
+      }
       
-    }, 1000);
+    }, 5000);
   }
   useEffect(() => {
     console.log(ProgressBar)
-  }, [ProgressBar])
+    setProgressPercentage( audioRef.current?.duration ? (ProgressBar * 100) / audioRef.current.duration : 0)
+    console.log(ProgressPercentage)
+  }, [ProgressBar , ProgressPercentage])
 // ~ ProgressBar
 // ~ Audio 
 useEffect(() => {
@@ -46,7 +51,6 @@ useEffect(() => {
       }
     }, [Data, IsPlay , Progress ])
     // ~ Audio 
-    console.log(audioRef.current?.currentTime)
   // ~ Play/Pause
     const Play_Pause = () => {
       if (!IsPlay) {
@@ -66,6 +70,7 @@ useEffect(() => {
         setDataIndex(nextIndex)
         setData(musicData[nextIndex])
         setProgress(0)
+        setProgressPercentage(0)
       }
     }
   // ~ Next
@@ -77,6 +82,7 @@ useEffect(() => {
         setData(musicData[prevIndex])
         setIsPlay(true)
         setProgress(0)
+        setProgressPercentage(0)
       }
     }
   // ~ Previous
@@ -87,6 +93,7 @@ useEffect(() => {
       setData(target)
       setIsPlay(true)
       setProgress(0)
+      setProgressPercentage(0)
     }
   // ~ Targeted Play
   // * ########## Logic
@@ -112,8 +119,18 @@ useEffect(() => {
               <div>{Data.description}</div>
             </div>
           {/* Caption/Title */}
+          {/* ProgressBar */}
+            <div className="w-full mb-[-50px] max-w-md">
+              <div className="w-full bg-black rounded-full h-[2px] overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-indigo-500 via-rose-500 to-rose-500/10 transition-all duration-700 ease-in-out" style={{ width: `${ProgressPercentage}%` }} ></div>
+              </div>
+              <div className="flex justify-between mt-3 text-sm font-bold text-indigo-500 px-5 font-yujiMai  dark:text-gray-300">
+                <span>{Math.round(ProgressPercentage ?? 0)}%</span>
+              </div>
+            </div>
+          {/* ProgressBar */}
           {/* Congiger icons */}
-            <div className='flex-center gap-x-5 border-t border-black py-5'>
+            <div className='flex-center gap-x-5 py-5 '>
               <span className='config-icons'>
                 <FaRedoAlt />
               </span>
@@ -137,8 +154,9 @@ useEffect(() => {
         <div className='music-card !px-0 py-10 max-h-[300px] flex-center flex-col'>
           <div className='overflow-y-scroll w-full'>
             {musicData.map((D, i) => (
-              <div onClick={() => Targeted(i)}key={D.id}  className='border-b cursor-pointer h-fit border-rose-900 w-full py-3 font-bold text-center text-rose-800' >
+              <div onClick={() => Targeted(i)}key={D.id}  className={` ${D.id == Data.id ?  ' text-indigo-700 ' : 'text-rose-800'} duration-500 border-b cursor-pointer h-fit border-rose-900 w-full py-3 font-bold text-center `} >
                 {D.title}
+                
               </div>
             ))}
           </div>
