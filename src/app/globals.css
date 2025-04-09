@@ -154,7 +154,7 @@ body {
       @apply  rounded-lg w-[90%] max-w-[400px] border border-stone-900 bg-black/50 
     }
     .config-icons {
-      @apply  duration-500 text-rose-800 hover:text-rose-500 cursor-pointer text-[25px] 
+      @apply  duration-500 text-rose-800 hover:text-rose-400 cursor-pointer text-[25px] 
     }
   /* & Music  */
   /* & Speed typing */

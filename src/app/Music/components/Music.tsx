@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { musicData } from '../constants/Data'
+import { TbRewindForward10 , TbRewindBackward10 } from "react-icons/tb";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FaPlay, FaPause, FaFastForward, FaFastBackward, FaRandom, FaRedoAlt } from 'react-icons/fa'
 
 const Music = () => {
@@ -15,42 +17,42 @@ const Music = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
 // * ########## State
 // * ########## Logic
-// ~ ProgressBar
-  if(IsPlay){
-    setTimeout(() => {
-      if (audioRef.current?.currentTime !== undefined) {
-        setProgressBar(audioRef.current.currentTime)
-      }
-      
-    }, 5000);
-  }
-  useEffect(() => {
-    console.log(ProgressBar)
-    setProgressPercentage( audioRef.current?.duration ? (ProgressBar * 100) / audioRef.current.duration : 0)
-    console.log(ProgressPercentage)
-  }, [ProgressBar , ProgressPercentage])
-// ~ ProgressBar
-// ~ Audio 
-useEffect(() => {
-  if (audioRef.current) {
-    audioRef.current.pause()
-      }
-    
-      const newAudio = new Audio(Data.audio)
-      if(Progress){
-        newAudio.currentTime = Progress
-      }
-      audioRef.current = newAudio
-    
-      if (IsPlay) {
-        newAudio.play()
-      }
-      
-      return () => {
-        newAudio.pause()
-      }
-    }, [Data, IsPlay , Progress ])
-    // ~ Audio 
+  // ~ ProgressBar
+    if(IsPlay){
+      setTimeout(() => {
+        if (audioRef.current?.currentTime !== undefined) {
+          setProgressBar(audioRef.current.currentTime)
+        }
+
+      }, 5000);
+    }
+    useEffect(() => {
+      console.log(ProgressBar)
+      setProgressPercentage( audioRef.current?.duration ? (ProgressBar * 100) / audioRef.current.duration : 0)
+      console.log(ProgressPercentage)
+    }, [ProgressBar , ProgressPercentage , Progress ])
+  // ~ ProgressBar
+  // ~ Audio 
+    useEffect(() => {
+      if (audioRef.current) {
+        audioRef.current.pause()
+          }
+        
+          const newAudio = new Audio(Data.audio)
+          if(Progress){
+            newAudio.currentTime = Progress
+          }
+          audioRef.current = newAudio
+        
+          if (IsPlay) {
+            newAudio.play()
+          }
+
+          return () => {
+            newAudio.pause()
+          }
+        }, [Data, IsPlay , Progress ])
+  // ~ Audio 
   // ~ Play/Pause
     const Play_Pause = () => {
       if (!IsPlay) {
@@ -96,6 +98,25 @@ useEffect(() => {
       setProgressPercentage(0)
     }
   // ~ Targeted Play
+  // ~ Forword/Backword
+    const Duration = (who : string) => {
+      switch (who) {
+        case "Forword" :
+          if (audioRef.current?.currentTime != undefined ){
+            setProgress(audioRef.current?.currentTime + 10 )
+          }
+          break;
+          case "Backword" :
+            if (audioRef.current?.currentTime != undefined ){
+              setProgress(audioRef.current?.currentTime - 10 )
+            }
+          break;
+      
+        default:
+          break;
+      }
+    }
+  // ~ Forword/Backword
   // * ########## Logic
   // * ########## Elementes
   return (
@@ -131,8 +152,8 @@ useEffect(() => {
           {/* ProgressBar */}
           {/* Congiger icons */}
             <div className='flex-center gap-x-5 py-5 '>
-              <span className='config-icons'>
-                <FaRedoAlt />
+              <span  onClick={() => Duration("Backword")}  className='config-icons hover:!text-indigo-500'>
+                <TbRewindBackward10 />
               </span>
               <span onClick={Prev} className='config-icons'>
                 <FaFastBackward />
@@ -143,8 +164,8 @@ useEffect(() => {
               <span onClick={Next} className='config-icons'>
                 <FaFastForward />
               </span>
-              <span className='config-icons'>
-                <FaRandom />
+              <span onClick={() => Duration("Forword")}  className='config-icons hover:!text-indigo-500 '>
+                <TbRewindForward10 />
               </span>
             </div>
           {/* Congiger icons */}
@@ -156,7 +177,7 @@ useEffect(() => {
             {musicData.map((D, i) => (
               <div onClick={() => Targeted(i)}key={D.id}  className={` ${D.id == Data.id ?  ' text-indigo-700 ' : 'text-rose-800'} duration-500 border-b cursor-pointer h-fit border-rose-900 w-full py-3 font-bold text-center `} >
                 {D.title}
-                
+
               </div>
             ))}
           </div>
