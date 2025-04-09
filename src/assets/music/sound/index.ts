@@ -1,4 +1,4 @@
-// export { default as surahAlAlaq } from './';
+// export { default as surahAlAlaq } from './surahAlAlaq.mp3';
 // export { default as surahAlDuha } from './Mohamed_Seddiq_Menshawi_HD_سورة_الضحى_للشيخ_محمد_صديق_المنشاوي_رحمه.mp3';
 // export { default as ibtihalRamadan } from './ابتهال_رمضان_اشرق_للشيخ_نصر_الدين_طوبارMP3_160K.mp3';
 // export { default as salDamai } from './الشيخ_نصر_الدين_طوبار_سال_دمعي_يا_إلهي_MP3_160K.mp3';
