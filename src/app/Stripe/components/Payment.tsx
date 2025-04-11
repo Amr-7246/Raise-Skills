@@ -1,45 +1,83 @@
-import React from 'react'
+'use client';
 
-const Payment = () => {
+import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { useState } from 'react';
+
+// interface CheckoutFormProps {
+//     clientSecret: string;
+// }
+
+export default function CheckoutForm() {
+// * ############## Hooks
+    const stripe = useStripe();
+    const elements = useElements();
+    const [status, setStatus] = useState('');
+    const [amount, setAmount] = useState('');
+// * ############## Hooks
+
+// * ############## Logics
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (!stripe || !elements) return;
+
+        // ~ Confirm payment with PaymentElement
+            const result = await stripe.confirmPayment({
+                elements,
+                confirmParams: {
+                    return_url: window.location.href,
+                },
+                redirect: 'if_required',
+            });
+        // ~ Confirm payment with PaymentElement
+
+        if (result.error) {
+            setStatus(` ${result.error.message}`);
+        } else if (result.paymentIntent?.status === 'succeeded') {
+            setStatus(' Payment successful!');
+        }
+    };
+// * ############## Logics
+
 return (
-    <div className='global-component '>
-        <div className='w-[100%] min-h-[80px] mb-10 flex gap-x-5 border-b border-green-300  '></div>
-        <div className='flex flex-col gap-5 ' >
-            <div className=' flex flex-col md:flex-row md:items-end gap-3 ' >
-                <div className=' w-[80%]' >
-                    <label className='payment-lable' htmlFor="">
-                        Card Number
-                    </label>
-                    <input className='payment-feild w-full ' type="text" placeholder='insert card number' />
-                </div>
-                <div className='flex w-fit p-2 h-[40px] border border-stone-500 min-w-[200px] rounded-md'>
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                    <img src="" alt="" />
-                </div>
-            </div>
-            <div className='flex gap-x-4'>
-                <div className='lable-div'>
-                    <label className='payment-lable' htmlFor="">
-                        Expiration
-                    </label>
-                    <input  className='payment-feild' type="text"  placeholder='YY\MM\DD' />
-                </div>
-                <div className='lable-div'>
-                    <label className='payment-lable' htmlFor="">
-                        CVC
-                    </label>
-                    <input  className='payment-feild' type="text" />
-                </div>
-            </div>
-            <label className='payment-lable' htmlFor="">
-                Country
-            </label>
-            <input  className='payment-feild' type="text"  placeholder='insert your country' />
+    <div className="global-component bg-white">
+        <div className="mb-6 text-center border-b-2 border-black pb-2 ">
+            <h1 className="text-4xl font-bold font-poppins text-black"> Payment Card</h1>
+            <p className="text-sm text-black mt-2">Secure & Encrypted</p>
         </div>
-    </div>
-)
-}
 
-export default Payment
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <div>
+                <label className="block text-black font-semibold mb-2">Amount to Pay</label>
+                <input
+                    type="number"
+                    placeholder="Enter amount"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    className="w-full p-4 rounded-md bg-black text-white border placeholder:text-white focus:outline-none focus:ring-2"
+                />
+            </div>
+
+            <div>
+                <label className="block text-black font-semibold mb-2">Card Information</label>
+                <div className="p-4 rounded-md  bg-black">
+                    <PaymentElement options={{ layout: 'tabs' }} />
+                </div>
+            </div>
+
+            {/* Submit Button */}
+                <button
+                    type="submit"
+                    disabled={!stripe}
+                    className="button !bg-black !text-white hover:!bg-transparent hover:border-black hover:!text-black "
+                >
+                    Pay Now
+                </button>
+            {/* Submit Button */}
+
+            {status && (
+                <p className="text-center mt-4 text-green-300 font-medium animate-pulse">{status}</p>
+            )}
+        </form>
+    </div>
+);
+}
