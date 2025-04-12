@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { FaWandMagicSparkles } from "react-icons/fa6";
 import { IoIosMoon } from "react-icons/io";
 import { GiSpellBook } from "react-icons/gi";
-import { generateImage } from '../services/api';
+import { generateImage } from '../../services/api';
 import { TiWarning } from "react-icons/ti";
 import ImageLoading from "./Loading" ;
 import { PromptData } from "./PromptData" ;
