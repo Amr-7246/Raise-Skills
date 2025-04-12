@@ -1,4 +1,14 @@
-export const HangMan = [
+type WordItem = {
+    type: "movies" | "famous" | "history";
+    name: string;
+    hint: string;
+  };
+  
+  type HangManItem = {
+    [key: `theCorrectWord_${number}`]: WordItem;
+  };
+
+export const HangMan : HangManItem[] = [
     // * movies
     {
         theCorrectWord_1: {    

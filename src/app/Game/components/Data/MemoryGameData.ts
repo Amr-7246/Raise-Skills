@@ -1,4 +1,10 @@
-export const blocks = [
+type Block = {
+    id: number;
+    value: string;
+    Atr: string;
+  };
+  
+export const blocks : Block[] = [
     {
         id : 1 ,
         value : 'Vue',
