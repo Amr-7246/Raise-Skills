@@ -7,7 +7,7 @@ import GlobalNavBar from '../Ai/components/GlobalNavBar';
 export default function Home() {
 return (
 <>
-    <div className=" page flex-wrap gap-y-10 ">
+    <div className=" page from-indigo-700 to-sky-500 flex-wrap gap-y-10 ">
         <GlobalNavBar/>
         <Game/>
         <Blocks/>
