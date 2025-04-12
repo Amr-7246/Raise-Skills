@@ -9,12 +9,12 @@ const GlobalNavBar: React.FC = () => {
     const navItems = [
         { label: 'Music', href: '/Music' },
         { label: 'Payment', href: '/Stripe' },
+        { label: 'Game', href: '/Game' },
         { label: 'SpeedTyping', href: '/SpeedTyping' },
         { label: 'QRcode', href: '/QRcode' },
         { label: 'Ai', href: '/' },
         { label: 'Translation', href: '/Translation' },
         { label: 'Tokens', href: '/Tokens' },
-        { label: 'Game', href: '/Game' },
         { label: 'Editor', href: '/Editor' },
     ];
 

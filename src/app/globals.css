@@ -52,6 +52,24 @@
   direction: ltr;
 }
 
+/* & ########## Memory Game   #############  */
+.front{
+  transform: rotateY(0deg);
+  }
+  .back{
+  transform: rotateY(180deg);
+  }
+  .fliped{
+  transform: rotateY(180deg);
+  }
+  .faild{
+  /* transform: rotateY(180deg); */
+  }
+  .successed{
+  transform: rotateY(180deg);
+  
+  }
+/* & ########## Memory Game   #############  */
 /* & ########## Hotels Scroll bar  #############  */
 
 :root {
@@ -168,5 +186,33 @@ body {
     }
   }
   /* & Speed typing */
+  /* & Game */
+  /* & Hang-man */
+    .hang-man-model {
+      @apply absolute duration-[500ms] bg-stone-800
+    }
+    .option {
+        @apply  cursor-pointer bg-stone-800 font-bold  w-[100px] text-stone-600
+    }
+    .hint-icon {
+      @apply  absolute min-w-[122px] duration-[500ms] top-[130%] left-1/2 transform -translate-x-1/2 bg-stone-600 text-stone-800 font-bold text-xs px-3 py-1 rounded-md shadow-lg
+    }
+  /* & Hang-man */
+  /* & Memory gam */
+      .preserve-3d {
+        transform-style: preserve-3d;
+    }
+    .backface-hidden {
+        backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+        transform: rotateY(180deg);
+    }
+    .rotate-y-0 {
+        transform: rotateY(0deg);
+    }
+    
+  /* & Memory gam */
+  /* & Game */
 
 }

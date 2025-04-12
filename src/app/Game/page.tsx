@@ -1,14 +1,16 @@
 "use client";
 import React from 'react';
-import Game from './components/Game';
+import Game from './components/HangMan';
+import Blocks from './components/MemoryBlocks';
 import GlobalNavBar from '../Ai/components/GlobalNavBar';
 
 export default function Home() {
 return (
 <>
-    <div className=" h-screen bg-ai-gradient from-gradientStart via-gradientMid to-gradientEnd py-20 ">
+    <div className=" page flex-wrap gap-y-10 ">
         <GlobalNavBar/>
         <Game/>
+        <Blocks/>
     </div>
 </>
 );
