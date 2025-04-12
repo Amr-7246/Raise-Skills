@@ -1,5 +1,5 @@
 type WordItem = {
-    type: "movies" | "famous" | "history";
+    type: "movies" | "famous" | "history" | "science" | "geography" | "sports" | "technology";
     name: string;
     hint: string;
   };
