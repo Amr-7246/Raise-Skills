@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Game from './components/Game';
-import GlobalNavBar from '../components/GlobalNavBar';
+import GlobalNavBar from '../Ai/components/GlobalNavBar';
 
 export default function Home() {
 return (

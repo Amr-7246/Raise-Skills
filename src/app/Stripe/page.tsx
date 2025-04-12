@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import { stripePromise } from '@/utils/Payment/stripeClient';
 import CheckoutForm from './components/Payment';
-import GlobalNavBar from '../components/GlobalNavBar';
+import GlobalNavBar from '../Ai/components/GlobalNavBar';
 import { motion } from 'framer-motion';
 import { createPaymentIntent } from './services/PaymentApi';
 

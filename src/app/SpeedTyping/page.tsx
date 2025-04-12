@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import GlobalNavBar from '../components/GlobalNavBar';
+import GlobalNavBar from '../Ai/components/GlobalNavBar';
 import SpeedTyping from './components/SpeedTyping';
 
 export default function Home() {

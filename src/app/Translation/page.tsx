@@ -2,7 +2,7 @@
 import React from 'react';
 import TranslatCard from './components/TranslatCard';
 import { motion } from 'framer-motion';
-import GlobalNavBar from '../components/GlobalNavBar';
+import GlobalNavBar from '../Ai/components/GlobalNavBar';
 
 export default function Home() {
 return (

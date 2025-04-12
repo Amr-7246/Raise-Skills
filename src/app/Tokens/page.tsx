@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import GlobalNavBar from '../components/GlobalNavBar';
+import GlobalNavBar from '../Ai/components/GlobalNavBar';
 import Tokens from './components/Tokens';
 
 export default function Home() {
