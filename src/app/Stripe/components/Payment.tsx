@@ -39,9 +39,9 @@ export default function CheckoutForm() {
 // * ############## Logics
 
 return (
-    <div className="global-component bg-white">
+    <div className="global-component font-mono bg-white">
         <div className="mb-6 text-center border-b-2 border-black pb-2 ">
-            <h1 className="text-4xl font-bold font-poppins text-black"> Payment Card</h1>
+            <h1 className="text-4xl font-black  text-black"> Payment Card</h1>
             <p className="text-sm text-black mt-2">Secure & Encrypted</p>
         </div>
 
@@ -59,7 +59,7 @@ return (
 
             <div>
                 <label className="block text-black font-semibold mb-2">Card Information</label>
-                <div className="p-4 rounded-md  bg-black">
+                <div className="px-4 py-10 rounded-md  bg-black">
                     <PaymentElement options={{ layout: 'tabs' }} />
                 </div>
             </div>
