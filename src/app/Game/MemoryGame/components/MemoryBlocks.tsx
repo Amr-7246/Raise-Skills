@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { blocks } from './Data/MemoryGameData'
+import { blocks } from '../Data/MemoryGameData';
+// import { blocks } from '../../components/Data/MemoryGameData'
 
 
 const Blocks = () => {

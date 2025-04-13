@@ -1,7 +1,7 @@
 import React , {useState , useEffect } from 'react'
 import { GiCardExchange } from "react-icons/gi";
 import { GiReturnArrow } from "react-icons/gi";
-import { HangMan } from './Data/HangManData'
+import { HangMan } from '../Data/HangManData'
 
 const Game = () => {
 // *########################### Start Hooks
