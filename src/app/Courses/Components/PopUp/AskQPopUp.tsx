@@ -1,5 +1,6 @@
-import useStore from '@/app/context/useStore';
+import useStore from '../../context/useStore';
 import React, { useState } from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IoIosArrowBack, IoMdClose } from 'react-icons/io';
 
 const AskQPopUp = () => {
@@ -7,6 +8,7 @@ const AskQPopUp = () => {
   const fakeUser = { id: 1, name: 'John Doe' };
   const [question, setQuestion] = useState('');
   const maxChar = 200;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { state, dispatch } = useStore();
 // * ################ End Hooks
 // * ################ Start Logic

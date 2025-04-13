@@ -8,7 +8,7 @@ import GlobalNavBar from "../Ai/components/GlobalNavBar";
 
 export default function Home() {
 return (
-<>
+<div className='!bg-white'>
     <GlobalNavBar/>
     <Header/>
     <div className = ' container ' >
@@ -18,6 +18,6 @@ return (
         <Comments/>
     </div>
         <PopUpTemplate/>
-</>
+</div>
 );
 }

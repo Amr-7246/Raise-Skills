@@ -7,8 +7,8 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoAlarmOutline } from "react-icons/io5";
 import { MdOutlineRadioButtonChecked } from "react-icons/md";
 import { useRouter } from "next/navigation";
-import useStore from "@/app/context/useStore";
-import { questions } from "@/app/Data/FakeData";
+import useStore from '../../context/useStore';
+import { questions } from "../../Data/FakeData";
 
 
 const ExamPopUp = () => {

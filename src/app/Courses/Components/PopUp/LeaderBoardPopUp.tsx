@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { X } from "lucide-react";
-import { players } from "@/app/Data/FakeData";
+// import { X } from "lucide-react";
+import { players } from "../../Data/FakeData";
 
 const LeaderBoardPopUp: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
@@ -17,7 +17,7 @@ const LeaderBoardPopUp: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-500 hover:text-red-500 transition"
         >
-          <X className="w-5 h-5" />
+          {/* <X className="w-5 h-5" /> */}
         </button>
 
         <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">

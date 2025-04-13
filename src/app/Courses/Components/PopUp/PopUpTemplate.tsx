@@ -8,6 +8,7 @@ import useStore from "../../context/useStore";
 
 const PopUpTemplate = () => {
 // *  ################# Start State
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { state, dispatch } = useStore();
     const { IsOppend, WhichOppend } = state;
 // *  ################# End State

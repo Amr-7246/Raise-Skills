@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
-import useStore from '@/app/context/useStore';
+// import { X } from 'lucide-react';
+import useStore from '../../context/useStore';
 import { IoIosArrowBack } from 'react-icons/io';
 
 const PdfPopUp: React.FC = () => {
@@ -32,7 +32,7 @@ const { state, dispatch } = useStore();
                 onClick={handleToggle} 
                 className="absolute cursor-pointer top-3 right-3 text-gray-600 hover:text-gray-900"
               >
-                <X size={24} />
+                {/* <X size={24} /> */}
               </button>
               <h2 className="text-lg font-semibold text-gray-800 text-center mb-2">PDF Viewer</h2>
               <div className="w-full h-96 border border-gray-300 rounded-lg overflow-hidden shadow-sm">
