@@ -242,6 +242,19 @@ body {
       .text-cliping {
           @apply h-[100px] max-w-[500px] mx-auto font-black text-[35px] justify-center items-center flex bg-gradient-to-l from-sky-400/70 via-rose-400/70 to-sky-500/70  dark:from-green-400/70 dark:via-rose-500/70 duration-[500ms] dark:to-green-500/70 text-transparent text-clip bg-clip-text
       }
+    .btn {
+      @apply mx-[10px] dark:bg-white/5 bg-sky-600/70 dark:text-green-400 text-stone-800 duration-[300ms] font-bold px-5 py-2 rounded-3xl  my-5 hover:bg-transparent hover:dark:bg-transparent  border border-transparent hover:border hover:text-blue-500 hover:dark:text-sky-500 hover:border-blue-500
+  }
+  .btn-cliping {
+      @apply bg-gradient-to-l dark:from-green-700  dark:via-rose-700 dark:to-sky-700 from-stone-800 via-rose-900 to-slate-800 text-transparent text-clip bg-clip-text
+  }
+  .flex-center {
+      @apply flex items-center justify-center
+  }
+  .bg-blugins {
+      @apply absolute font-bold text-stone-900/50
+  }
+
   /* & Name Generation */
   /* & Courses */
   

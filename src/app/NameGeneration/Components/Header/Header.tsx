@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import { FaBabyCarriage } from "react-icons/fa";
 import ThemeToggleButton from './ThemeButton';

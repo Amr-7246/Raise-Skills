@@ -1,10 +1,17 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { IoMdCloudyNight } from "react-icons/io";
 
 const ThemeToggleButton = () => {
-    const [isDarkMode, setIsDarkMode] = useState(() => {
-        return localStorage.getItem("theme") === "dark";
-    });
+    const [isDarkMode, setIsDarkMode] = useState(false); // default false to avoid SSR crash
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            setIsDarkMode(true);
+        }
+    }, []);
 
     useEffect(() => {
         if (isDarkMode) {
