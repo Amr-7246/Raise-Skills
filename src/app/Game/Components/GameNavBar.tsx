@@ -11,7 +11,7 @@ const icon = "rounded-full bg-stone-700 border border-black p-3 text-[22px] flex
 const pathname = usePathname();
 
 const isActive = (path: string) =>
-    pathname === path ? "text-sky-400 underline" : "text-white";
+    pathname === path ? "text-sky-400 bg-transparent border-sky-400" : "text-white";
 
 return (
     <nav className="flex gap-6 p-4 text-lg w-full flex-center font-semibold">
@@ -22,5 +22,3 @@ return (
             <span className={icon} ><GiBrain /></span>
         </Link>
     </nav>
-);
-}
