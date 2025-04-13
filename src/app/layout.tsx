@@ -4,6 +4,8 @@ import Providers from "./Providers";
 import { AnimatePresence } from "framer-motion";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Provider from './provider';
+import { VideoProvider } from "./Courses/context/VideoContext";
+import { StoreProvider } from "./Courses/context/StoreContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,17 +16,21 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>
-        <Providers>
-            <Provider>
-              <AnimatePresence mode="wait"> {/* Optional mode prop */}
-                {children}
-              </AnimatePresence>
-            <ReactQueryDevtools initialIsOpen={false} />
-          </Provider>
-        </Providers>
-      </body>
-    </html>
+    <StoreProvider>
+      <VideoProvider>
+        <html lang="en">
+          <body>
+            <Providers>
+                <Provider>
+                  <AnimatePresence mode="wait"> {/* Optional mode prop */}
+                    {children}
+                  </AnimatePresence>
+                <ReactQueryDevtools initialIsOpen={false} />
+              </Provider>
+            </Providers>
+          </body>
+        </html>
+      </VideoProvider>
+    </StoreProvider>
   );
 }

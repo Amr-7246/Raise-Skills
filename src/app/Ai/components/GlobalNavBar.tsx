@@ -10,12 +10,14 @@ const GlobalNavBar: React.FC = () => {
         { label: 'Music', href: '/Music' },
         { label: 'Payment', href: '/Stripe' },
         { label: 'Game', href: '/Game' },
+        { label: 'Name Generator', href: '/NameGeneration' },
         { label: 'SpeedTyping', href: '/SpeedTyping' },
         { label: 'QRcode', href: '/QRcode' },
+        { label: 'Courses', href: '/Courses' },
+        { label: 'Tokens', href: '/Tokens' },
         { label: 'Ai', href: '/' },
         { label: 'Translation', href: '/Translation' },
-        { label: 'Tokens', href: '/Tokens' },
-        { label: 'Editor', href: '/Editor' },
+        // { label: 'Editor', href: '/Editor' },
     ];
 
 return (
