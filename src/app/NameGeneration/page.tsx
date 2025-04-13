@@ -8,7 +8,7 @@ import Header from './Components/Header/Header';
 export default function Home() {
 return (
 <>
-    <div className=" page from-indigo-800 to-orange-800 dark:from-gray-800 dark:to-stone-800 flex-wrap !pt-0 ">
+    <div className=" page from-indigo-800 to-orange-800 dark:from-gray-800 dark:to-stone-900 flex-wrap !pt-0 ">
         <GlobalNavBar/>
         <BackGround/>
         <Header/>
