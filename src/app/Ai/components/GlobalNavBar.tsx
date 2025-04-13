@@ -27,7 +27,7 @@ return (
             const isActive = pathname === item.href;
             return (
             <Link key={item.href} href={item.href}>
-                <span className={`  hover:text-stone-200  px-3 py-2 rounded transition-colors duration-200 cursor-pointer ${ isActive ? 'text-green-400' : 'text-stone-400' }`}
+                <span className={`  hover:text-stone-200  w-fit flex-center  px-3 py-2 rounded transition-colors duration-200 cursor-pointer ${ isActive ? 'text-green-400' : 'text-stone-400' }`}
                 >
                 {item.label}
                 </span>

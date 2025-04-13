@@ -23,38 +23,44 @@ const Generator = () => {
   // * ###################################################### End UseStat
   // * ###################################################### Start Logic
   // & Start handleOrigin
-  const handleOrigin = (e) => {
+  const handleOrigin = (e: React.MouseEvent<HTMLDivElement>) => {
     const newOrigin = e.currentTarget.dataset.optionValue;
-    setConfig((prev) => ({ ...prev, origin: newOrigin }));
+    if (newOrigin) {
+      setConfig((prev) => ({ ...prev, origin: newOrigin }));
+    }
   };
   // & End handleOrigin 
   // & Start handleGender
-  const handleGender = (e) => {
+  const handleGender = (e: React.MouseEvent<HTMLDivElement>) => {
     const newGender = e.currentTarget.dataset.optionValue;
-    setConfig((prev) => ({ 
-      ...prev,
-      twinsMale: false,
-      twinsFemale: false,
-      twinsFemaleAndMale: false,
-      popularName: false,
-      unPopularName: false, 
-      gender: newGender 
-    }));
+    if (newGender) {
+      setConfig((prev) => ({ 
+        ...prev,
+        twinsMale: false,
+        twinsFemale: false,
+        twinsFemaleAndMale: false,
+        popularName: false,
+        unPopularName: false, 
+        gender: newGender 
+      }));
+    }
   };
   // & End handleGender
   // & Start handleMoreOptions
-  const handleMoreOptions = (e) => {
+  const handleMoreOptions = (e: React.MouseEvent<HTMLDivElement>) => {
     const newMoreOption = e.currentTarget.dataset.optionValue;
-    setConfig((prev) => ({ 
-      ...prev,
-      gender: null ,
-      twinsMale: false,
-      twinsFemale: false,
-      twinsFemaleAndMale: false,
-      popularName: false,
-      unPopularName: false, 
-      [newMoreOption]: true,
+    if (newMoreOption) {
+      setConfig((prev) => ({ 
+        ...prev,
+        twinsMale: false,
+        twinsFemale: false,
+        twinsFemaleAndMale: false,
+        popularName: false,
+        unPopularName: false, 
+        gender: "", 
+        [newMoreOption]: true,
       }));
+    }
   };
   // & End handleMoreOptions
   // & Start Name Generation Algorithem
@@ -81,54 +87,53 @@ const Generator = () => {
               Math.floor(Math.random() * names[config.origin].allNames.length)
             ];
             break;
-            
             default:
               newName = names[config.origin]?.allNames?.[
                 Math.floor(Math.random() * names[config.origin].allNames.length)
               ];
               break;
-            }
-          }
+        }
+      }
       // ? twinsMale Controlle  
-    if (config.twinsMale) {
-      const twinNames = names[config.origin]?.twinsMale;
-      if (twinNames?.length) {
-        const randomIndex = Math.floor(Math.random() * twinNames.length);
-        newName = twinNames[randomIndex].join(" And "); // ✅ Join twin names with " And "
-      }
-    // ? twinsFemale Controlle  
-    } else if (config.twinsFemale) {
-      const twinNames = names[config.origin]?.twinsFemale;
-      if (twinNames?.length) {
-        const randomIndex = Math.floor(Math.random() * twinNames.length);
-        newName = twinNames[randomIndex].join(" And "); // ✅ Join twin names with " And "
-      }
-    // ? twinsFemaleAndMale Controlle  
-    } else if (config.twinsFemaleAndMale) {
-      const twinNames = names[config.origin]?.twinsFemaleAndMale;
-      if (twinNames?.length) {
-        const randomIndex = Math.floor(Math.random() * twinNames.length);
-        newName = twinNames[randomIndex].join(" And "); // ✅ Join twin names with " And "
-      }
+      if (config.twinsMale) {
+        const twinNames = names[config.origin]?.twinsMale;
+        if (twinNames?.length) {
+          const randomIndex = Math.floor(Math.random() * twinNames.length);
+          newName = twinNames[randomIndex].join(" And ");
+        }
+      // ? twinsFemale Controlle  
+      } else if (config.twinsFemale) {
+        const twinNames = names[config.origin]?.twinsFemale;
+        if (twinNames?.length) {
+          const randomIndex = Math.floor(Math.random() * twinNames.length);
+          newName = twinNames[randomIndex].join(" And ");
+        }
+      // ? twinsFemaleAndMale Controlle  
+      } else if (config.twinsFemaleAndMale) {
+        const twinNames = names[config.origin]?.twinsFemaleAndMale;
+        if (twinNames?.length) {
+          const randomIndex = Math.floor(Math.random() * twinNames.length);
+          newName = twinNames[randomIndex].join(" And ");
+        }
       // ? popularName Controlle  
-    } else if (config.popularName) {
-      newName = names[config.origin]?.popularity?.[
-        Math.floor(Math.random() * names[config.origin].popularity.length)
-      ];
+      } else if (config.popularName) {
+        newName = names[config.origin]?.popularity?.[
+          Math.floor(Math.random() * names[config.origin].popularity.length)
+        ];
       // ? unPopularName Controlle  
-    } else if (config.unPopularName) {
-      newName = names[config.origin]?.uniqueName?.[
-        Math.floor(Math.random() * names[config.origin].uniqueName.length)
+      } else if (config.unPopularName) {
+        newName = names[config.origin]?.uniqueName?.[
+          Math.floor(Math.random() * names[config.origin].uniqueName.length)
         ];
       } 
-      
+
       setName(newName || "No Name Found");
-      
+
     }, 1500);
   }
   // & End Name Generation Algorithem
   useEffect(() => {
-  console.log(config)
+    console.log(config)
   }, [config])
   
   // * ###################################################### End Logic
@@ -156,7 +161,7 @@ const Generator = () => {
             <Dropdown
               title="Origin"
               config={config}
-              isConfigurationOpen={isConfigurationOpen}
+              // isConfigurationOpen={isConfigurationOpen}
               options={Object.keys(names)}
               onSelect={handleOrigin}
               isOpen={isOriginOpen}
@@ -166,7 +171,7 @@ const Generator = () => {
             <Dropdown
               title="Gender"
               config={config}
-              options={["Male", "Female" , "Any"]}
+              options={["male", "female" , "allNames"]}
               onSelect={handleGender}
               isOpen={isGenderOpen}
               setIsOpen={setIsGenderOpen}

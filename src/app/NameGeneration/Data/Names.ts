@@ -1,4 +1,23 @@
-const names = {
+type TwinPair = [string, string];
+
+type CountryNames = {
+    id: number;
+    origin: string;
+    allNames: string[];
+    female: string[];
+    male: string[];
+    popularity: string[];
+    uniqueName: string[];
+    twinsMale: TwinPair[];
+    twinsFemale: TwinPair[];
+    twinsFemaleAndMale: TwinPair[];
+};
+
+type NamesData = {
+    [country: string]: CountryNames;
+};
+
+const names : NamesData  = {
     // *  ##################################################### Canada
 Canada: {
     id: 4,
@@ -6,7 +25,7 @@ Canada: {
     allNames: [
         "jack", "noah", "liam", "mason", "ethan", "oliver", "lucas", "logan", "aiden", "james", "owen", "jackson", "michael", "alexander", "william", "jacob", "benjamin", "ryan", "lucas", "dylan", "elijah", "harrison", "sean", "isaac", "thomas", "daniel", "evan", "andrew", "matthew", "caleb", "nathan", "luke", "zachary", "brayden", "matthew", "grayson", "leo", "colton", "harrison", "samuel", "charlie", "joshua", "adam", "hunter", "caleb", "charles", "isaiah", "maxwell", "victor", "sebastian", "gabriel", "cooper", "jake", "carter", "anthony", "matthew", "benjamin", "joseph","emily", "olivia", "ava", "isla", "mia", "sophia", "charlotte", "amelia", "grace", "chloe", "ella", "harper", "maddison", "zoe", "ruby", "victoria", "madeline", "lily", "emma", "lucy", "ella", "hailey","aubrey", "scarlett", "kaitlyn", "leah", "ariel", "eva", "riley", "madeline", "daisy", "zoey", "eva", "sophie", "poppy", "rose", "piper", "isabel", "elizabeth", "hannah", "sydney", "mia", "amelia", "ariana", "zoe", "violet", "harriet", "grace", "bella", "madison", "rebecca", "katherine", "gianna", "madison", "brooklyn", "natalie", "victoria", "gabriella", "ellie", "violet", "maya"
     ],
-    femalName: [
+    female: [
         "olivia", "ava", "isla", "mia", "sophia", "charlotte", "amelia", "grace", "chloe", "ella", "harper", "maddison", "zoe", "ruby", "victoria", "madeline", "lily", "emma", "lucy", "ella", "hailey", "aubrey", "scarlett", "kaitlyn", "leah", "ariel", "eva", "riley", "madeline", "daisy", "zoey", "eva", "sophie", "poppy", "rose", "piper", "isabel", "elizabeth", "hannah", "sydney", "mia", "amelia", "ariana", "zoe", "violet", "harriet", "grace", "bella", "madison", "rebecca", "katherine", "gianna", "madison", "brooklyn", "natalie", "victoria", "gabriella", "ellie", "violet", "maya", "jessica", "chloe", "arabella", "mary", "fiona", "eva", "mckenzie", "addison", "penelope", "lila", "clara", "liana", "lucia", "aurora", "mia", "alina", "sophia", "emily", "quinn", "madeline", "gracie", "charlotte", "isabella", "lucy", "grace", "madison", "piper"
     ],
     male: [
