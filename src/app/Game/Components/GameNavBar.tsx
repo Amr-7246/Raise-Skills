@@ -11,14 +11,16 @@ const icon = "rounded-full bg-stone-700 border border-black p-3 text-[22px] flex
 const pathname = usePathname();
 
 const isActive = (path: string) =>
-    pathname === path ? "text-sky-400 bg-transparent border-sky-400" : "text-white";
+    pathname === path ? "text-sky-400 !bg-transparent !border-sky-400" : "text-white";
 
 return (
     <nav className="flex gap-6 p-4 text-lg w-full flex-center font-semibold">
         <Link href="/Game/HangMan" className={isActive("/Game/HangMan") }>
-            <span className={icon}><TbMan /></span>
+            <span className={` ${icon} ${pathname === "/Game/HangMan" ? 'text-sky-500 !bg-transparent !border-sky-500' : '' }`}><TbMan /></span>
         </Link>
         <Link href="/Game/MemoryGame" className={isActive("/Game/MemoryGame")}>
-            <span className={icon} ><GiBrain /></span>
+            <span className={` ${icon} ${pathname === "/Game/MemoryGame" ? 'text-sky-500 !bg-transparent !border-sky-500' : '' }`} ><GiBrain /></span>
         </Link>
     </nav>
+);
+}
