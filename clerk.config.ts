@@ -1,10 +1,10 @@
-// clerk.config.ts
-import { clerkMiddleware } from "@clerk/nextjs/server";
+// // clerk.config.ts
+// import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+// export default clerkMiddleware();
 
-export const config = {
-    matcher: [
-        "/dashboard(.*)",
-    ],
-};
+// export const config = {
+//     matcher: [
+//         "/dashboard(.*)",
+//     ],
+// };
