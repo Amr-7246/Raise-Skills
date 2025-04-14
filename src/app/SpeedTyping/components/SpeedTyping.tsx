@@ -6,56 +6,69 @@ const texts = [
     "Tailwind CSS makes styling faster and easier.",
     "React is a powerful library for building UIs.",
     "Speed typing is fun and boosts your brain!",
+    "JavaScript is the language of the web. Learn it. Master it. Rule it.",
+    "Next.js with TypeScript feels like driving a Tesla on a coding highway",
+    "Design isn't just how it looks — it's how it *feels*",
+    "Dark mode isn't a preference, it's a *lifestyle*",
+    "Keep coding like nobody's watching, but make sure GitHub sees it",
+    "CSS used to hurt... then Tailwind showed up like a hero in a hoodie",
+    "Every bug you fix is one step closer to becoming a coding legend",
+    "Push to Git, take a sip of coffee, and vibe.",
+    "Debugging at 3AM builds character. Real ones know.",
+    "Animations done right can make your UI feel *alive*",
+    "One commit a day keeps the tech debt away",
 ];
 
+
 const SpeedTyping = () => {
-// * ############# start State
+// * ############################ start State
     const [input, setInput] = useState("");
     const [startTime, setStartTime] = useState<number | null>(null);
     const [wpm, setWpm] = useState(0);
     const [falseCount, setFalseCount] = useState(0);
     const [currentTextIndex, setCurrentTextIndex] = useState(0);
-
     const textToType = texts[currentTextIndex];
-// * ############# End State
-// * ############# start logic
-    useEffect(() => {
-        if (input.length === 1 && !startTime) {
-            setStartTime(Date.now());
-        }
-
-        let count = 0;
-        for (let i = 0; i < input.length; i++) {
-        if (input[i] !== textToType[i]) {
-            count++;
-        }
-        }
-        setFalseCount(count);
-
-        if (input === textToType) {
-            const endTime = Date.now();
-            const timeTaken = (endTime - (startTime || endTime)) / 1000 / 60;
-            const wordCount = textToType.trim().split(" ").length;
-            setWpm(Math.round(wordCount / timeTaken));
-        }
-    }, [input, textToType]);
-    
-// % getColoredText
-    const getColoredText = () => {
-        return textToType.split("").map((char, i) => {
-            let className = "";
-            if (i < input.length) {
-            className = char === input[i] ? "text-green-500" : "text-red-500";
+// * ############################ End State
+// * ############################ start logic
+    // ~ Calculate Speed
+        useEffect(() => {
+            if (input.length === 1 && !startTime) {
+                setStartTime(Date.now());
             }
-            return (
-            <span key={i} className={`${className}`}>
-                {char}
-            </span>
-    );
-        });
-    };
-    // % getColoredText
-    // % handleChangeText
+
+            let count = 0;
+            for (let i = 0; i < input.length; i++) {
+            if (input[i] !== textToType[i]) {
+                count++;
+            }
+            }
+            setFalseCount(count);
+
+            if (input === textToType) {
+                const endTime = Date.now();
+                const timeTaken = (endTime - (startTime || endTime)) / 1000 / 60;
+                const wordCount = textToType.trim().split(" ").length;
+                setWpm(Math.round(wordCount / timeTaken));
+            }
+        }, [input, textToType]);
+
+    // ~ Calculate Speed
+    // ~ getColoredText
+        const getColoredText = () => {
+            return textToType.split("").map((char, i) => {
+                let className = "";
+                if (i < input.length) {
+                className = char === input[i] ? "text-green-500" : "text-red-500";
+                }
+                return (
+                <span key={i} className={`${className}`}>
+                    {char}
+                </span>
+        );
+            });
+        };
+    // ~ getColoredText
+    // ~ handleChangeText
         const handleChangeText = () => {
             const nextIndex = (currentTextIndex + 1) % texts.length;
             setCurrentTextIndex(nextIndex);
@@ -64,8 +77,8 @@ const SpeedTyping = () => {
             setWpm(0);
             setFalseCount(0);
         };
-    // % handleChangeText
-// * ############# End logic
+    // ~ handleChangeText
+// * ############################ End logic
 return (
     <div className="global-component bg-stone-900/80 min-h-screen !border !border-teal-800 flex flex-col items-center justify-center text-teal-800 p-4">
         <h1 className="text-3xl md:text-5xl font-bold font-hindMysuru text-sky-400 mb-6 animate-pulse">
