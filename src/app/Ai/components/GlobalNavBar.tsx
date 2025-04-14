@@ -14,7 +14,7 @@ const GlobalNavBar: React.FC = () => {
         { label: 'Courses', href: '/Courses' },
         { label: 'SpeedTyping', href: '/SpeedTyping' },
         { label: 'QRcode', href: '/QRcode' },
-        { label: 'Tokens', href: '/Tokens' },
+        // { label: 'Tokens', href: '/Tokens' },
         { label: 'Ai', href: '/' },
         { label: 'Translation', href: '/Translation' },
         // { label: 'Editor', href: '/Editor' },
