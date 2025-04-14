@@ -6,7 +6,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Provider from './provider';
 import { VideoProvider } from "./Courses/context/VideoContext";
 import { StoreProvider } from "./Courses/context/StoreContext";
-import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +16,6 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <ClerkProvider>
       <StoreProvider>
         <VideoProvider>
           <html lang="en">
@@ -34,6 +32,5 @@ export default function RootLayout({
           </html>
         </VideoProvider>
       </StoreProvider>
-    </ClerkProvider>
   );
 }
